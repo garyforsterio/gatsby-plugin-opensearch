@@ -18,15 +18,15 @@ siteMetadata: {
 plugins: [{
   resolve: `gatsby-plugin-opensearch`,
   options: {
-    shortName: 'Blog',
-    description: 'Search Blog',
+    shortName: 'Github',
+    description: 'Search Github',
     searchTemplate: '/search?q={searchTerms}',
     searchForm: '/search',
   },
 }]
 ```
 
-Above is the minimal configuration required to generate a it work. The
+Above is the minimal configuration required to get started. The
 generated OpenSearch description will be included on all of your site's pages.
 
 For more information about OpenSearch can be found [here](https://developer.mozilla.org/en-US/docs/Web/OpenSearch).
