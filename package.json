@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-opensearch",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Gatsby plugin that automatically creates a OpenSearch description file for your website",
   "main": "index.js",
   "scripts": {
