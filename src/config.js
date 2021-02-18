@@ -1,4 +1,4 @@
 export const defaultOptions = {
-  output: `/opensearch-description.xml`,
+  output: `/opensearch.xml`,
   createLinkInHead: true,
 };

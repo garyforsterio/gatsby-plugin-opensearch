@@ -1,6 +1,6 @@
 import path from 'path';
 import { createDescriptionFile } from './createDescriptionFile';
-import { defaultOptions } from './internals';
+import { defaultOptions } from './config';
 
 const publicPath = `./public`;
 
@@ -34,13 +34,13 @@ exports.onPostBuild = async ({ graphql }, pluginOptions) => {
 
   const outputFile = path.join(publicPath, output);
 
-  return createDescriptionFile(outputFile, rest);
+  return createDescriptionFile(outputFile, { siteUrl, ...rest });
 };
 
 exports.pluginOptionsSchema = ({ Joi }) =>
   Joi.object().keys({
     output: Joi.string()
-      .default(`/opensearch-description.xml`)
+      .default(`/opensearch.xml`)
       .description(`The filepath and name`),
     createLinkInHead: Joi.boolean()
       .default(true)
@@ -59,7 +59,6 @@ exports.pluginOptionsSchema = ({ Joi }) =>
       .description(
         `A brief description of the search engine. It must be 1024 or fewer characters of plain text, with no HTML or other markup.`
       ),
-    searchPathname: Joi.string().required(),
-    searchFormPathname: Joi.string().max(1024).required(),
-    params: Joi.array(),
+    searchTemplate: Joi.string().required(),
+    searchForm: Joi.string().required(),
   });
