@@ -59,6 +59,13 @@ exports.pluginOptionsSchema = ({ Joi }) =>
       .description(
         `A brief description of the search engine. It must be 1024 or fewer characters of plain text, with no HTML or other markup.`
       ),
-    searchTemplate: Joi.string().required(),
-    searchForm: Joi.string().required(),
+    searchTemplate: Joi.string()
+      .required()
+      .description(
+        'The pathname along with any required query parameters to be populated.'
+      ),
+    searchForm: Joi.string()
+      .uri({ relativeOnly: true })
+      .required()
+      .description('The pathname of the search form.'),
   });

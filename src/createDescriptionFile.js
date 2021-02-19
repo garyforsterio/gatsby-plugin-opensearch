@@ -1,17 +1,19 @@
 import { promises as fs } from 'fs';
+import xmlescape from 'xml-escape';
 
-export function createDescriptionFile(
+export const createDescriptionFile = (
   outputFile,
   { shortName, description, siteUrl, searchTemplate, searchForm }
-) {
-  return fs.writeFile(
+) =>
+  fs.writeFile(
     outputFile,
     `<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
-<ShortName>${shortName}</ShortName>
-<Description>${description}</Description>
+<ShortName>${xmlescape(shortName)}</ShortName>
+<Description>${xmlescape(description)}</Description>
 <InputEncoding>UTF-8</InputEncoding>
-<Url type="text/html" method="get" template="${siteUrl}${searchTemplate}"/>
-<moz:SearchForm>${siteUrl}${searchForm}</moz:SearchForm>
+<Url type="text/html" method="get" template="${xmlescape(
+      siteUrl + searchTemplate
+    )}"/>
+<moz:SearchForm>${xmlescape(siteUrl + searchForm)}</moz:SearchForm>
 </OpenSearchDescription>`
   );
-}
