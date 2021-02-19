@@ -7,7 +7,8 @@
     "build": "babel src --out-dir . --ignore \"**/*.spec.js\"",
     "watch": "babel -w src --out-dir . --ignore \"**/*.spec.js\"",
     "test": "jest",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "version": "auto-changelog -p && git add CHANGELOG.md"
   },
   "repository": {
     "type": "git",
@@ -39,6 +40,7 @@
   "devDependencies": {
     "@babel/cli": "^7.12.16",
     "@babel/core": "^7.12.16",
+    "auto-changelog": "^2.2.1",
     "babel-preset-gatsby-package": "^0.12.0",
     "jest": "^26.6.3"
   },
