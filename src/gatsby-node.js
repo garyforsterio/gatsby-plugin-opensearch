@@ -1,4 +1,4 @@
-import path from 'path';
+import path, { join } from 'path';
 import { createDescriptionFile } from './createDescriptionFile';
 import { defaultOptions } from './config';
 
@@ -68,4 +68,7 @@ exports.pluginOptionsSchema = ({ Joi }) =>
       .uri({ relativeOnly: true })
       .required()
       .description('The pathname of the search form.'),
+    crossOrigin: Joi.string()
+      .default('anonymous')
+      .description('Value of cross origin attribute on link tag'),
   });
