@@ -43,3 +43,7 @@ The options are as follows:
 - `searchTemplate` (string) The pathname along with any required query parameters. Parameters to be populated should be wrapped in curly brackets (e.g. `{searchTerms}`). More details of available parameters can be found [here](https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md#opensearch-11-parameters). This string will be appended to the `siteUrl` to generate the OpenSearch description file. Any characters which are invalid in XML must be escaped (e.g. & -> `&amp;`)
 - `searchForm` (string) The pathname for the site's search page. This allows Firefox users to visit the site directly.
 - `createLinkInHead` (boolean) Whether to populate the `<head>` of your site with a link to the OpenSearch description file. Defaults to true.
+- `image` (object) Allows configuration of an icon for the search engine (optional).
+- `image.width` (number) The width of the icon
+- `image.height` (number) The height of the icon
+- `image.src` (string) The pathname for the icon, e.g. `/favicon.ico`. The site URL will be prefixed to the start

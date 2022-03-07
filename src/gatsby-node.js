@@ -68,4 +68,13 @@ exports.pluginOptionsSchema = ({ Joi }) =>
       .uri({ relativeOnly: true })
       .required()
       .description('The pathname of the search form.'),
+    image: Joi.object().keys({
+      width: Joi.number().required().description('The width of the icon'),
+      height: Joi.number().required().description('The height of the icon'),
+      src: Joi.string()
+        .required()
+        .description(
+          'The pathname for the icon. The site URL will be prefixed to the start'
+        ),
+    }),
   });

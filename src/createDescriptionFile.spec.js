@@ -27,4 +27,19 @@ describe('createDescriptionFile', () => {
     expect(writeMock).toHaveBeenCalledTimes(1);
     expect(writeMock).toHaveBeenCalledWith(fileName, expectedXML);
   });
+  it('populates image if specified', () => {
+    const writeMock = jest.fn();
+    jest.spyOn(promises, 'writeFile').mockImplementation(writeMock);
+    createDescriptionFile(fileName, {
+      ...fields,
+      image: { width: 16, height: 16, src: '/favicon.ico' },
+    });
+    expect(writeMock).toHaveBeenCalledTimes(1);
+    expect(writeMock).toHaveBeenCalledWith(
+      fileName,
+      expect.stringContaining(
+        '<Image width="16" height="16" type="image/x-icon">http://example.com/favicon.ico</Image>'
+      )
+    );
+  });
 });
