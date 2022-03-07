@@ -2,7 +2,7 @@ import React from 'react';
 import { defaultOptions } from './config';
 
 exports.onRenderBody = ({ setHeadComponents }, pluginOptions) => {
-  let { output, createLinkInHead, crossOrigin } = {
+  let { output, createLinkInHead } = {
     ...defaultOptions,
     ...pluginOptions,
   };
@@ -20,7 +20,6 @@ exports.onRenderBody = ({ setHeadComponents }, pluginOptions) => {
       key="gatsby-plugin-opensearch"
       rel="search"
       type="application/opensearchdescription+xml"
-      crossOrigin={crossOrigin}
       href={output}
     />,
   ]);
