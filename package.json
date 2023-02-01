@@ -41,7 +41,7 @@
     "@babel/cli": "^7.12.16",
     "@babel/core": "^7.12.16",
     "auto-changelog": "^2.2.1",
-    "babel-preset-gatsby-package": "^2.9.0",
+    "babel-preset-gatsby-package": "^3.5.0",
     "jest": "^27.5.1"
   },
   "peerDependencies": {
